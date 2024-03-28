@@ -38,7 +38,7 @@ def clean_html_tags(text):
 def extract_domains_and_filter_emails(csv_file_path, verbose=False):
     domains = set()
     try:
-        with open(csv_file_path, newline='') as csvfile:
+        with open(csv_file_path, newline='', encoding='utf-8') as csvfile:
             reader = csv.reader(csvfile)
             for row in reader:
                 for field in row:
@@ -69,7 +69,7 @@ def extract_domains_and_filter_emails(csv_file_path, verbose=False):
 
 def write_domains_to_file(domains, output_file_path):
     try:
-        with open(output_file_path, 'w') as f:
+        with open(output_file_path, 'w', encoding='utf-8') as f:
             for domain in sorted(domains):
                 f.write(f"{domain}\n")
         print(f"\U00002705 Domains were successfully written to '{output_file_path}'.")
