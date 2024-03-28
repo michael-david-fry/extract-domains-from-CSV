@@ -9,7 +9,7 @@ import re
 from termcolor import colored
 
 # Increase the maximum CSV field size limit
-csv.field_size_limit(sys.maxsize)
+csv.field_size_limit(2**31 - 1)
 
 def list_csv_files():
     csv_files = glob.glob('*.csv')
